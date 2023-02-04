@@ -2,24 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class script_boton_combate : MonoBehaviour
+public class Enemigo : MonoBehaviour
 {
-    Player player;
-    // playerCard = GameObject.Find("playerCard");
+    [SerializeField] public int vida;
+    [SerializeField] private int ataque;
 
     // Start is called before the first frame update
     void Start()
     {
-        player = new Ge();
-        player.
+        getVida();
     }
-    void OnClick()
-    {
-        Debug.Log("Clcik");
-    }
+
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public int getVida()
+    {
+        return vida = Random.Range(1, 20);
     }
 }
