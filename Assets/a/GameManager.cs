@@ -24,10 +24,10 @@ public class GameManager : MonoBehaviour
     {
         enemySpawn();
         healthEnem = enemigo.GetComponent<Enemigo>().getVida();
-        playerHealth = GetComponent<Player>().vida;
-        Debug.Log(playerHealth);
+        //playerHealth = GetComponent<Player>().vida;
+       // Debug.Log(playerHealth);
     }
-
+     
     public void enemySpawn()
     {
         Instantiate(enemigo);
