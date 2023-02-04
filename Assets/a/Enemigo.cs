@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class Enemigo : MonoBehaviour
 {
-   public float vida;
-   public int ataque;
+    public string nombreEnemigo;
 
     // Start is called before the first frame update
     void Start()
