@@ -5,9 +5,9 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     // Start is called before the first frame update
-    public float vida;
-    [SerializeField] public int ataque;
+    public string nombreJugador;
     private GameManager gm;
+    private int contadorPlayer, contadorEnemigo;
 
     void Start()
     {
@@ -23,58 +23,188 @@ public class Player : MonoBehaviour
 
     private void OnMouseDown()
     {
-        
-        int prefabEnemigo = Random.Range(0, gm.gameList.Count);
-        gm.gameList[prefabEnemigo].transform.position += Vector3.down * 2;
-        float vidaEnemigo = gm.gameList[prefabEnemigo].GetComponent<Enemigo>().vida;
-        int dmgEnemigo = gm.gameList[prefabEnemigo].GetComponent<Enemigo>().ataque;
-        transform.position += Vector3.up * 2;
-        while (vidaEnemigo > 0 && vida > 0)
+
+        if (contadorPlayer  !=6 || contadorEnemigo !=6)
         {
-            vidaEnemigo = vidaEnemigo - ataque;
-            vida = vida - dmgEnemigo;
-        }
-        if (vidaEnemigo <= 0 && vida <= 0)
-        {
-            Debug.Log("Empate");
-            StartCoroutine(cooldownAnimDraw(gm.gameList, prefabEnemigo, gameObject));
-        }
-        if (vida <= 0 && vidaEnemigo > 0)
-        {
-            Debug.Log("Gana Enemigo");
-            StartCoroutine(cooldownAnimEnemiWin(gm.gameList, prefabEnemigo, gameObject));
-        }
-        if (vidaEnemigo <= 0 && vida > 0)
-        {
-            Debug.Log("Gana Jugador");
-            StartCoroutine(cooldownPlayerWin(gm.gameList,prefabEnemigo));
+            int prefabEnemigo = Random.Range(0, gm.gameList.Count);
+            gm.gameList[prefabEnemigo].transform.position += Vector3.down * 2;
+            string nombreEnemigo = gm.gameList[prefabEnemigo].GetComponent<Enemigo>().nombreEnemigo;
+            transform.position += Vector3.up * 2;
+            switch (nombreJugador)
+            {
+                case "Abuelo":
+                    if (nombreEnemigo.Equals("Abuelo"))
+                    {
+                        Debug.Log("Empate");
+                        StartCoroutine(cooldownAnim(gm.gameList, prefabEnemigo));
+                    }
+                    if (nombreEnemigo.Equals("Abuela"))
+                    {
+                        Debug.Log("Pierde");
+                        StartCoroutine(cooldownAnim(gm.gameList, prefabEnemigo));
+                        contadorEnemigo++;
+                    }
+                    if (nombreEnemigo.Equals("Padre"))
+                    {
+                        Debug.Log("Gana");
+                        StartCoroutine(cooldownAnim(gm.gameList, prefabEnemigo));
+                        contadorPlayer++;
+                    }
+                    if (nombreEnemigo.Equals("Madre"))
+                    {
+                        Debug.Log("Pierde");
+                        StartCoroutine(cooldownAnim(gm.gameList, prefabEnemigo));
+                        contadorEnemigo++;
+                    }
+                    if (nombreEnemigo.Equals("Niño"))
+                    {
+                        Debug.Log("Gana");
+                        StartCoroutine(cooldownAnim(gm.gameList, prefabEnemigo));
+                        contadorPlayer++;
+                    }
+                    break;
+                case "Abuela":
+                    if (nombreEnemigo.Equals("Abuelo"))
+                    {
+                        Debug.Log("Gana");
+                        StartCoroutine(cooldownAnim(gm.gameList, prefabEnemigo));
+                        contadorPlayer++;
+                    }
+                    if (nombreEnemigo.Equals("Abuela"))
+                    {
+                        Debug.Log("Empate");
+                        StartCoroutine(cooldownAnim(gm.gameList, prefabEnemigo));
+                    }
+                    if (nombreEnemigo.Equals("Padre"))
+                    {
+                        Debug.Log("Gana");
+                        StartCoroutine(cooldownAnim(gm.gameList, prefabEnemigo));
+                        contadorPlayer++;
+                    }
+                    if (nombreEnemigo.Equals("Madre"))
+                    {
+                        Debug.Log("Pierde");
+                        StartCoroutine(cooldownAnim(gm.gameList, prefabEnemigo));
+                        contadorEnemigo++;
+                    }
+                    if (nombreEnemigo.Equals("Niño"))
+                    {
+                        Debug.Log("Pierde");
+                        StartCoroutine(cooldownAnim(gm.gameList, prefabEnemigo));
+                        contadorEnemigo++;
+                    }
+                    break;
+                case "Padre":
+                    if (nombreEnemigo.Equals("Abuelo"))
+                    {
+                        Debug.Log("Pierde");
+                        StartCoroutine(cooldownAnim(gm.gameList, prefabEnemigo));
+                        contadorEnemigo++;
+                    }
+                    if (nombreEnemigo.Equals("Abuela"))
+                    {
+                        Debug.Log("Pierde");
+                        StartCoroutine(cooldownAnim(gm.gameList, prefabEnemigo));
+                        contadorEnemigo++;
+                    }
+                    if (nombreEnemigo.Equals("Padre"))
+                    {
+                        Debug.Log("Empate");
+                        StartCoroutine(cooldownAnim(gm.gameList, prefabEnemigo));
+                    }
+                    if (nombreEnemigo.Equals("Madre"))
+                    {
+                        Debug.Log("Pierde");
+                        StartCoroutine(cooldownAnim(gm.gameList, prefabEnemigo));
+                        contadorEnemigo++;
+                    }
+                    if (nombreEnemigo.Equals("Niño"))
+                    {
+                        Debug.Log("Gana");
+                        StartCoroutine(cooldownAnim(gm.gameList, prefabEnemigo));
+                        contadorPlayer++;
+                    }
+                    break;
+                case "Madre":
+                    if (nombreEnemigo.Equals("Abuelo"))
+                    {
+                        Debug.Log("Gana");
+                        StartCoroutine(cooldownAnim(gm.gameList, prefabEnemigo));
+                        contadorPlayer++;
+                    }
+                    if (nombreEnemigo.Equals("Abuela"))
+                    {
+                        Debug.Log("Gana");
+                        StartCoroutine(cooldownAnim(gm.gameList, prefabEnemigo));
+                        contadorPlayer++;
+                    }
+                    if (nombreEnemigo.Equals("Padre"))
+                    {
+                        Debug.Log("Pierde");
+                        StartCoroutine(cooldownAnim(gm.gameList, prefabEnemigo));
+                        contadorEnemigo++;
+                    }
+                    if (nombreEnemigo.Equals("Madre"))
+                    {
+                        Debug.Log("Empate");
+                        StartCoroutine(cooldownAnim(gm.gameList, prefabEnemigo));
+                    }
+                    if (nombreEnemigo.Equals("Niño"))
+                    {
+                        Debug.Log("Pierde");
+                        StartCoroutine(cooldownAnim(gm.gameList, prefabEnemigo));
+                        contadorEnemigo++;
+                    }
+                    break;
+                case "Niño":
+                    if (nombreEnemigo.Equals("Abuelo"))
+                    {
+                        Debug.Log("Pierde");
+                        StartCoroutine(cooldownAnim(gm.gameList, prefabEnemigo));
+                        contadorEnemigo++;
+                    }
+                    if (nombreEnemigo.Equals("Abuela"))
+                    {
+                        Debug.Log("Gana");
+                        StartCoroutine(cooldownAnim(gm.gameList, prefabEnemigo));
+                        contadorPlayer++;
+                    }
+                    if (nombreEnemigo.Equals("Padre"))
+                    {
+                        Debug.Log("Pierde");
+                        StartCoroutine(cooldownAnim(gm.gameList, prefabEnemigo));
+                        contadorEnemigo++;
+                    }
+                    if (nombreEnemigo.Equals("Madre"))
+                    {
+                        Debug.Log("Gana");
+                        StartCoroutine(cooldownAnim(gm.gameList, prefabEnemigo));
+                        contadorPlayer++;
+                    }
+                    if (nombreEnemigo.Equals("Niño"))
+                    {
+                        Debug.Log("Empate");
+                        StartCoroutine(cooldownAnim(gm.gameList, prefabEnemigo));
+                    }
+                    break;
+            }
+            if (contadorEnemigo == 6)
+            {
+                Debug.Log("Gana Enemigo");
+            }
+            if (contadorPlayer == 6)
+            {
+                Debug.Log("Gana Jugador");
+            }
         }
     }
 
-    IEnumerator cooldownAnimDraw(List<GameObject> lista, int indice, GameObject gameObject)
-    {
-
-        yield return new WaitForSeconds(2);
-        Destroy(gameObject);
-        Destroy(lista[indice]);
-        lista.RemoveAt(indice);
-        Debug.Log(lista.Count);
-    }
-    IEnumerator cooldownAnimEnemiWin(List<GameObject> lista, int indice, GameObject gameObject)
+    IEnumerator cooldownAnim(List<GameObject> lista, int indice)
     {
 
         yield return new WaitForSeconds(2);
         lista[indice].transform.position += Vector3.up * 2;
-        Destroy(gameObject);
-    }
-
-    IEnumerator cooldownPlayerWin(List<GameObject> lista, int indice)
-    {
-        
-        yield return new WaitForSeconds(2);
         transform.position += Vector3.down * 2;
-        Destroy(lista[indice]);
-        lista.RemoveAt(indice);
-        Debug.Log(lista.Count);
+
     }
 }
