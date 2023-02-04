@@ -25,23 +25,4 @@ public class GameManager : MonoBehaviour
     {
         
     }
-
-<<<<<<< HEAD
-
-
-=======
-    public void OnClick()
-    {
-        enemySpawn();
-        healthEnem = enemigo.GetComponent<Enemigo>().getVida();
-        //playerHealth = GetComponent<Player>().vida;
-       // Debug.Log(playerHealth);
-    }
-     
-    public void enemySpawn()
-    {
-        Instantiate(enemigo);
-        enemigo.SetActive(true);
-    }
->>>>>>> maurice
 }
