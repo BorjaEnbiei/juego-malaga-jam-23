@@ -98,9 +98,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a611a4981979093468deeb9f49cf535c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vida: 20
+  vida: 15
+  vidajugando: 0
   ataque: 0
   jugada: 0
+  enemigo1: {fileID: 0}
+  enemigo2: {fileID: 0}
+  enemigo3: {fileID: 0}
 --- !u!61 &9005271882258649644
 BoxCollider2D:
   m_ObjectHideFlags: 0
