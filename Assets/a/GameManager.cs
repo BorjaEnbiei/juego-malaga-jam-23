@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public GameObject enemigo3;
     public GameObject enemigo4;
     public GameObject enemigo5;
+    public int contadorPlayer, contadorEnemigo;
     void Start()
     {
         gameList.Add(enemigo1);

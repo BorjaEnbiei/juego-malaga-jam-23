@@ -7,7 +7,6 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     public string nombreJugador;
     private GameManager gm;
-    private int contadorPlayer, contadorEnemigo;
 
     void Start()
     {
@@ -24,12 +23,12 @@ public class Player : MonoBehaviour
     private void OnMouseDown()
     {
 
-        if (contadorPlayer  !=6 || contadorEnemigo !=6)
+        if (gm.contadorPlayer  !=6 || gm.contadorEnemigo !=6)
         {
             int prefabEnemigo = Random.Range(0, gm.gameList.Count);
-            gm.gameList[prefabEnemigo].transform.position += Vector3.down * 2;
+            gm.gameList[prefabEnemigo].transform.position += Vector3.down * 1;
             string nombreEnemigo = gm.gameList[prefabEnemigo].GetComponent<Enemigo>().nombreEnemigo;
-            transform.position += Vector3.up * 2;
+            transform.position += Vector3.up * 1;
             switch (nombreJugador)
             {
                 case "Abuelo":
@@ -42,25 +41,25 @@ public class Player : MonoBehaviour
                     {
                         Debug.Log("Pierde");
                         StartCoroutine(cooldownAnim(gm.gameList, prefabEnemigo));
-                        contadorEnemigo++;
+                        gm.contadorEnemigo++;
                     }
                     if (nombreEnemigo.Equals("Padre"))
                     {
                         Debug.Log("Gana");
                         StartCoroutine(cooldownAnim(gm.gameList, prefabEnemigo));
-                        contadorPlayer++;
+                        gm.contadorPlayer++;
                     }
                     if (nombreEnemigo.Equals("Madre"))
                     {
                         Debug.Log("Pierde");
                         StartCoroutine(cooldownAnim(gm.gameList, prefabEnemigo));
-                        contadorEnemigo++;
+                        gm.contadorEnemigo++;
                     }
                     if (nombreEnemigo.Equals("Niño"))
                     {
                         Debug.Log("Gana");
                         StartCoroutine(cooldownAnim(gm.gameList, prefabEnemigo));
-                        contadorPlayer++;
+                        gm.contadorPlayer++;
                     }
                     break;
                 case "Abuela":
@@ -68,7 +67,7 @@ public class Player : MonoBehaviour
                     {
                         Debug.Log("Gana");
                         StartCoroutine(cooldownAnim(gm.gameList, prefabEnemigo));
-                        contadorPlayer++;
+                        gm.contadorPlayer++;
                     }
                     if (nombreEnemigo.Equals("Abuela"))
                     {
@@ -79,19 +78,19 @@ public class Player : MonoBehaviour
                     {
                         Debug.Log("Gana");
                         StartCoroutine(cooldownAnim(gm.gameList, prefabEnemigo));
-                        contadorPlayer++;
+                        gm.contadorPlayer++;
                     }
                     if (nombreEnemigo.Equals("Madre"))
                     {
                         Debug.Log("Pierde");
                         StartCoroutine(cooldownAnim(gm.gameList, prefabEnemigo));
-                        contadorEnemigo++;
+                        gm.contadorEnemigo++;
                     }
                     if (nombreEnemigo.Equals("Niño"))
                     {
                         Debug.Log("Pierde");
                         StartCoroutine(cooldownAnim(gm.gameList, prefabEnemigo));
-                        contadorEnemigo++;
+                        gm.contadorEnemigo++;
                     }
                     break;
                 case "Padre":
@@ -99,13 +98,13 @@ public class Player : MonoBehaviour
                     {
                         Debug.Log("Pierde");
                         StartCoroutine(cooldownAnim(gm.gameList, prefabEnemigo));
-                        contadorEnemigo++;
+                        gm.contadorEnemigo++;
                     }
                     if (nombreEnemigo.Equals("Abuela"))
                     {
                         Debug.Log("Pierde");
                         StartCoroutine(cooldownAnim(gm.gameList, prefabEnemigo));
-                        contadorEnemigo++;
+                        gm.contadorEnemigo++;
                     }
                     if (nombreEnemigo.Equals("Padre"))
                     {
@@ -116,13 +115,13 @@ public class Player : MonoBehaviour
                     {
                         Debug.Log("Pierde");
                         StartCoroutine(cooldownAnim(gm.gameList, prefabEnemigo));
-                        contadorEnemigo++;
+                        gm.contadorEnemigo++;
                     }
                     if (nombreEnemigo.Equals("Niño"))
                     {
                         Debug.Log("Gana");
                         StartCoroutine(cooldownAnim(gm.gameList, prefabEnemigo));
-                        contadorPlayer++;
+                        gm.contadorPlayer++;
                     }
                     break;
                 case "Madre":
@@ -130,19 +129,19 @@ public class Player : MonoBehaviour
                     {
                         Debug.Log("Gana");
                         StartCoroutine(cooldownAnim(gm.gameList, prefabEnemigo));
-                        contadorPlayer++;
+                        gm.contadorPlayer++;
                     }
                     if (nombreEnemigo.Equals("Abuela"))
                     {
                         Debug.Log("Gana");
                         StartCoroutine(cooldownAnim(gm.gameList, prefabEnemigo));
-                        contadorPlayer++;
+                        gm.contadorPlayer++;
                     }
                     if (nombreEnemigo.Equals("Padre"))
                     {
                         Debug.Log("Pierde");
                         StartCoroutine(cooldownAnim(gm.gameList, prefabEnemigo));
-                        contadorEnemigo++;
+                        gm.contadorEnemigo++;
                     }
                     if (nombreEnemigo.Equals("Madre"))
                     {
@@ -153,7 +152,7 @@ public class Player : MonoBehaviour
                     {
                         Debug.Log("Pierde");
                         StartCoroutine(cooldownAnim(gm.gameList, prefabEnemigo));
-                        contadorEnemigo++;
+                        gm.contadorEnemigo++;
                     }
                     break;
                 case "Niño":
@@ -161,25 +160,25 @@ public class Player : MonoBehaviour
                     {
                         Debug.Log("Pierde");
                         StartCoroutine(cooldownAnim(gm.gameList, prefabEnemigo));
-                        contadorEnemigo++;
+                        gm.contadorEnemigo++;
                     }
                     if (nombreEnemigo.Equals("Abuela"))
                     {
                         Debug.Log("Gana");
                         StartCoroutine(cooldownAnim(gm.gameList, prefabEnemigo));
-                        contadorPlayer++;
+                        gm.contadorPlayer++;
                     }
                     if (nombreEnemigo.Equals("Padre"))
                     {
                         Debug.Log("Pierde");
                         StartCoroutine(cooldownAnim(gm.gameList, prefabEnemigo));
-                        contadorEnemigo++;
+                        gm.contadorEnemigo++;
                     }
                     if (nombreEnemigo.Equals("Madre"))
                     {
                         Debug.Log("Gana");
                         StartCoroutine(cooldownAnim(gm.gameList, prefabEnemigo));
-                        contadorPlayer++;
+                        gm.contadorPlayer++;
                     }
                     if (nombreEnemigo.Equals("Niño"))
                     {
@@ -188,11 +187,11 @@ public class Player : MonoBehaviour
                     }
                     break;
             }
-            if (contadorEnemigo == 6)
+            if (gm.contadorEnemigo == 6)
             {
                 Debug.Log("Gana Enemigo");
             }
-            if (contadorPlayer == 6)
+            if (gm.contadorPlayer == 6)
             {
                 Debug.Log("Gana Jugador");
             }
@@ -202,9 +201,9 @@ public class Player : MonoBehaviour
     IEnumerator cooldownAnim(List<GameObject> lista, int indice)
     {
 
-        yield return new WaitForSeconds(2);
-        lista[indice].transform.position += Vector3.up * 2;
-        transform.position += Vector3.down * 2;
+        yield return new WaitForSeconds(1);
+        lista[indice].transform.position += Vector3.up * 1;
+        transform.position += Vector3.down * 1;
 
     }
 }
