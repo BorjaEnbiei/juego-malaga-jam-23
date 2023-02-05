@@ -5,6 +5,8 @@ using UnityEngine.Video;
 
 public class GameManager : MonoBehaviour
 {
+    public int contadorEnemigo = 0;
+    public int contadorPlayer = 0;
     public List<GameObject> gameList = new List<GameObject>();
     public GameObject enemigo1;
     public GameObject enemigo2;
@@ -18,11 +20,5 @@ public class GameManager : MonoBehaviour
         gameList.Add(enemigo3);
         gameList.Add(enemigo4);
         gameList.Add(enemigo5);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
