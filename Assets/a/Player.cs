@@ -8,202 +8,191 @@ public class Player : MonoBehaviour
     public string nombreJugador;
     private GameManager gm;
 
+
+    
     void Start()
     {
         gm = FindAnyObjectByType<GameManager>();
-
     }
-
-    // Update is called once per frame
-    void Update()
+    void update()
     {
-        
-    }
-
-    private void OnMouseDown()
-    {
-
-        if (gm.contadorPlayer  !=6 || gm.contadorEnemigo !=6)
+        if (gm.contadorEnemigo == 5)
         {
-            int prefabEnemigo = Random.Range(0, gm.gameList.Count);
-            gm.gameList[prefabEnemigo].transform.position += Vector3.down * 1;
-            string nombreEnemigo = gm.gameList[prefabEnemigo].GetComponent<Enemigo>().nombreEnemigo;
-            transform.position += Vector3.up * 1;
-            switch (nombreJugador)
-            {
-                case "Abuelo":
-                    if (nombreEnemigo.Equals("Abuelo"))
-                    {
-                        Debug.Log("Empate");
-                        StartCoroutine(cooldownAnim(gm.gameList, prefabEnemigo));
-                    }
-                    if (nombreEnemigo.Equals("Abuela"))
-                    {
-                        Debug.Log("Pierde");
-                        StartCoroutine(cooldownAnim(gm.gameList, prefabEnemigo));
-                        gm.contadorEnemigo++;
-                    }
-                    if (nombreEnemigo.Equals("Padre"))
-                    {
-                        Debug.Log("Gana");
-                        StartCoroutine(cooldownAnim(gm.gameList, prefabEnemigo));
-                        gm.contadorPlayer++;
-                    }
-                    if (nombreEnemigo.Equals("Madre"))
-                    {
-                        Debug.Log("Pierde");
-                        StartCoroutine(cooldownAnim(gm.gameList, prefabEnemigo));
-                        gm.contadorEnemigo++;
-                    }
-                    if (nombreEnemigo.Equals("Niño"))
-                    {
-                        Debug.Log("Gana");
-                        StartCoroutine(cooldownAnim(gm.gameList, prefabEnemigo));
-                        gm.contadorPlayer++;
-                    }
-                    break;
-                case "Abuela":
-                    if (nombreEnemigo.Equals("Abuelo"))
-                    {
-                        Debug.Log("Gana");
-                        StartCoroutine(cooldownAnim(gm.gameList, prefabEnemigo));
-                        gm.contadorPlayer++;
-                    }
-                    if (nombreEnemigo.Equals("Abuela"))
-                    {
-                        Debug.Log("Empate");
-                        StartCoroutine(cooldownAnim(gm.gameList, prefabEnemigo));
-                    }
-                    if (nombreEnemigo.Equals("Padre"))
-                    {
-                        Debug.Log("Gana");
-                        StartCoroutine(cooldownAnim(gm.gameList, prefabEnemigo));
-                        gm.contadorPlayer++;
-                    }
-                    if (nombreEnemigo.Equals("Madre"))
-                    {
-                        Debug.Log("Pierde");
-                        StartCoroutine(cooldownAnim(gm.gameList, prefabEnemigo));
-                        gm.contadorEnemigo++;
-                    }
-                    if (nombreEnemigo.Equals("Niño"))
-                    {
-                        Debug.Log("Pierde");
-                        StartCoroutine(cooldownAnim(gm.gameList, prefabEnemigo));
-                        gm.contadorEnemigo++;
-                    }
-                    break;
-                case "Padre":
-                    if (nombreEnemigo.Equals("Abuelo"))
-                    {
-                        Debug.Log("Pierde");
-                        StartCoroutine(cooldownAnim(gm.gameList, prefabEnemigo));
-                        gm.contadorEnemigo++;
-                    }
-                    if (nombreEnemigo.Equals("Abuela"))
-                    {
-                        Debug.Log("Pierde");
-                        StartCoroutine(cooldownAnim(gm.gameList, prefabEnemigo));
-                        gm.contadorEnemigo++;
-                    }
-                    if (nombreEnemigo.Equals("Padre"))
-                    {
-                        Debug.Log("Empate");
-                        StartCoroutine(cooldownAnim(gm.gameList, prefabEnemigo));
-                    }
-                    if (nombreEnemigo.Equals("Madre"))
-                    {
-                        Debug.Log("Pierde");
-                        StartCoroutine(cooldownAnim(gm.gameList, prefabEnemigo));
-                        gm.contadorEnemigo++;
-                    }
-                    if (nombreEnemigo.Equals("Niño"))
-                    {
-                        Debug.Log("Gana");
-                        StartCoroutine(cooldownAnim(gm.gameList, prefabEnemigo));
-                        gm.contadorPlayer++;
-                    }
-                    break;
-                case "Madre":
-                    if (nombreEnemigo.Equals("Abuelo"))
-                    {
-                        Debug.Log("Gana");
-                        StartCoroutine(cooldownAnim(gm.gameList, prefabEnemigo));
-                        gm.contadorPlayer++;
-                    }
-                    if (nombreEnemigo.Equals("Abuela"))
-                    {
-                        Debug.Log("Gana");
-                        StartCoroutine(cooldownAnim(gm.gameList, prefabEnemigo));
-                        gm.contadorPlayer++;
-                    }
-                    if (nombreEnemigo.Equals("Padre"))
-                    {
-                        Debug.Log("Pierde");
-                        StartCoroutine(cooldownAnim(gm.gameList, prefabEnemigo));
-                        gm.contadorEnemigo++;
-                    }
-                    if (nombreEnemigo.Equals("Madre"))
-                    {
-                        Debug.Log("Empate");
-                        StartCoroutine(cooldownAnim(gm.gameList, prefabEnemigo));
-                    }
-                    if (nombreEnemigo.Equals("Niño"))
-                    {
-                        Debug.Log("Pierde");
-                        StartCoroutine(cooldownAnim(gm.gameList, prefabEnemigo));
-                        gm.contadorEnemigo++;
-                    }
-                    break;
-                case "Niño":
-                    if (nombreEnemigo.Equals("Abuelo"))
-                    {
-                        Debug.Log("Pierde");
-                        StartCoroutine(cooldownAnim(gm.gameList, prefabEnemigo));
-                        gm.contadorEnemigo++;
-                    }
-                    if (nombreEnemigo.Equals("Abuela"))
-                    {
-                        Debug.Log("Gana");
-                        StartCoroutine(cooldownAnim(gm.gameList, prefabEnemigo));
-                        gm.contadorPlayer++;
-                    }
-                    if (nombreEnemigo.Equals("Padre"))
-                    {
-                        Debug.Log("Pierde");
-                        StartCoroutine(cooldownAnim(gm.gameList, prefabEnemigo));
-                        gm.contadorEnemigo++;
-                    }
-                    if (nombreEnemigo.Equals("Madre"))
-                    {
-                        Debug.Log("Gana");
-                        StartCoroutine(cooldownAnim(gm.gameList, prefabEnemigo));
-                        gm.contadorPlayer++;
-                    }
-                    if (nombreEnemigo.Equals("Niño"))
-                    {
-                        Debug.Log("Empate");
-                        StartCoroutine(cooldownAnim(gm.gameList, prefabEnemigo));
-                    }
-                    break;
-            }
-            if (gm.contadorEnemigo == 6)
-            {
-                Debug.Log("Gana Enemigo");
-            }
-            if (gm.contadorPlayer == 6)
-            {
-                Debug.Log("Gana Jugador");
-            }
+            Debug.Log("Gana Enemigo");
+            //CHANGE SCENE TO GAME OVER
+        } else if (gm.contadorPlayer == 5)
+        {
+            Debug.Log("Gana Jugador");
+            // CHANGE SCENE TO PLAYER WON
         }
     }
-
-    IEnumerator cooldownAnim(List<GameObject> lista, int indice)
+    // Update is called once per frame
+    private void OnMouseDown()
     {
+        if (gm.contadorPlayer < 5 & gm.contadorEnemigo < 5)
+        {
+            int prefabEnemigo = Random.Range(0, gm.gameList.Count);
+            gm.gameList[prefabEnemigo].transform.position += Vector3.down * 2;
+            string nombreEnemigo = gm.gameList[prefabEnemigo].GetComponent<Enemigo>().nombreEnemigo;
+            transform.position += Vector3.up * 2;
 
+            string matchResult = "";
+            switch (nombreJugador)
+            { 
+                case "Abuelo":
+                {
+                    switch (nombreEnemigo)
+                    {
+                    case "Abuelo":
+                    matchResult = "Empate";
+                    break;
+
+                    case "Abuela":
+                    matchResult = "Pierde";
+                    break;
+                        
+                    case "Padre":
+                    matchResult = "Gana";
+                    break;
+
+                    case "Madre":
+                    matchResult = "Pierde";
+                    break;
+                    
+                    case "NiÃ±o":
+                    matchResult = "Gana";
+                    break;
+                    }
+                }
+                break;
+
+                case "Abuela":
+                {
+                    switch (nombreEnemigo)
+                    {
+                    case "Abuelo":
+                    matchResult = "Gana";
+                    break;
+
+                    case "Abuela":
+                    matchResult = "Empate";
+                    break;
+                        
+                    case "Padre":
+                    matchResult = "Gana";
+                    break;
+
+                    case "Madre":
+                    matchResult = "Pierde";
+                    break;
+                    
+                    case "NiÃ±o":
+                    matchResult = "Pierde";
+                    break;
+                    }
+                }
+                break;
+
+                case "Padre":
+                {
+                    switch (nombreEnemigo)
+                    {
+                    case "Abuelo":
+                    matchResult = "Pierde";
+                    break;
+
+                    case "Abuela":
+                    matchResult = "Pierde";
+                    break;
+                        
+                    case "Padre":
+                    matchResult = "Empate";
+                    break;
+
+                    case "Madre":
+                    matchResult = "Gana";
+                    break;
+                    
+                    case "NiÃ±o":
+                    matchResult = "Gana";
+                    break;
+                    }
+                }
+                break;
+
+                case "NiÃ±o":
+                {
+                    switch (nombreEnemigo)
+                    {
+                    case "Abuelo":
+                    matchResult = "Pierde";
+                    break;
+
+                    case "Abuela":
+                    matchResult = "Gana";
+                    break;
+                        
+                    case "Padre":
+                    matchResult = "Pierde";
+                    break;
+
+                    case "Madre":
+                    matchResult = "Gana";
+                    break;
+                    
+                    case "NiÃ±o":
+                    matchResult = "Empate";
+                    break;
+                    }
+                }
+                break;
+                 
+                case "Madre":
+                {
+                    switch (nombreEnemigo)
+                    {
+                    case "Abuelo":
+                    matchResult = "Gana";
+                    break;
+
+                    case "Abuela":
+                    matchResult = "Gana";
+                    break;
+                        
+                    case "Padre":
+                    matchResult = "Pierde";
+                    break;
+
+                    case "Madre":
+                    matchResult = "Empate";
+                    break;
+                    
+                    case "NiÃ±o":
+                    matchResult = "Pierde";
+                    break;
+                    }
+                }
+                break;
+                
+            }
+
+            StartCoroutine(cooldownAnim(prefabEnemigo));
+
+            Debug.Log(matchResult);
+            if (matchResult == "Gana") {
+                gm.contadorPlayer++;
+            } else if (matchResult == "Pierde") {
+                gm.contadorEnemigo++;
+            }
+        } 
+        Debug.Log(gm.contadorEnemigo.ToString() + gm.contadorPlayer.ToString());
+
+    }
+
+    IEnumerator cooldownAnim(int prefabEnemigo)
+    {
         yield return new WaitForSeconds(1);
-        lista[indice].transform.position += Vector3.up * 1;
-        transform.position += Vector3.down * 1;
-
+        gm.gameList[prefabEnemigo].transform.position += Vector3.up * 2;
+        transform.position += Vector3.down * 2;
     }
 }
