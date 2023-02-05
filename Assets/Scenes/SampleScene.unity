@@ -642,7 +642,7 @@ MonoBehaviour:
   enemigo2: {fileID: 1248197720}
   enemigo3: {fileID: 1640226298}
   enemigo4: {fileID: 581408312}
-  enemigo5: {fileID: 0}
+  enemigo5: {fileID: 1288690423}
 --- !u!4 &1366364108
 Transform:
   m_ObjectHideFlags: 0
@@ -865,11 +865,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6679234616036514663, guid: 79f9a33a16bf9e24fa958d65dd810c99, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 13.24
+      value: 12.78
       objectReference: {fileID: 0}
     - target: {fileID: 6679234616036514663, guid: 79f9a33a16bf9e24fa958d65dd810c99, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.4
+      value: -4.6
       objectReference: {fileID: 0}
     - target: {fileID: 6679234616036514663, guid: 79f9a33a16bf9e24fa958d65dd810c99, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1178,11 +1178,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6679234616036514663, guid: 79f9a33a16bf9e24fa958d65dd810c99, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.92
+      value: 5.35
       objectReference: {fileID: 0}
     - target: {fileID: 6679234616036514663, guid: 79f9a33a16bf9e24fa958d65dd810c99, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.75
+      value: 3.53
       objectReference: {fileID: 0}
     - target: {fileID: 6679234616036514663, guid: 79f9a33a16bf9e24fa958d65dd810c99, type: 3}
       propertyPath: m_LocalPosition.z
