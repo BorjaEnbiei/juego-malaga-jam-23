@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -14,18 +15,7 @@ public class Player : MonoBehaviour
     {
         gm = FindAnyObjectByType<GameManager>();
     }
-    void update()
-    {
-        if (gm.contadorEnemigo == 5)
-        {
-            Debug.Log("Gana Enemigo");
-            //CHANGE SCENE TO GAME OVER
-        } else if (gm.contadorPlayer == 5)
-        {
-            Debug.Log("Gana Jugador");
-            // CHANGE SCENE TO PLAYER WON
-        }
-    }
+
     // Update is called once per frame
     private void OnMouseDown()
     {
