@@ -8,12 +8,14 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     public string nombreJugador;
     private GameManager gm;
+    private AudioHit Sound;
 
 
     
     void Start()
     {
         gm = FindAnyObjectByType<GameManager>();
+        Sound = FindAnyObjectByType<AudioHit>();
     }
 
     // Update is called once per frame
@@ -25,6 +27,8 @@ public class Player : MonoBehaviour
             gm.gameList[prefabEnemigo].transform.position += Vector3.down * 2;
             string nombreEnemigo = gm.gameList[prefabEnemigo].GetComponent<Enemigo>().nombreEnemigo;
             transform.position += Vector3.up * 2;
+
+            Sound.Play();
 
             string matchResult = "";
             switch (nombreJugador)
