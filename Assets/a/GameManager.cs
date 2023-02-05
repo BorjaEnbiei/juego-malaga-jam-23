@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using UnityEngine.Video;
 
 public class GameManager : MonoBehaviour
 {
+    public Text textPlayer, textEnemigo;
     public int contadorEnemigo = 0;
     public int contadorPlayer = 0;
     public List<GameObject> gameList = new List<GameObject>();
