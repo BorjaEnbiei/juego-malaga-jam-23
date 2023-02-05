@@ -23,12 +23,12 @@ public class Player : MonoBehaviour
     private void OnMouseDown()
     {
 
-        if (contadorPlayer  !=6 || contadorEnemigo !=6)
+        if (gm.contadorPlayer  !=6 || gm.contadorEnemigo !=6)
         {
             int prefabEnemigo = Random.Range(0, gm.gameList.Count);
-            gm.gameList[prefabEnemigo].transform.position += Vector3.down * 2;
+            gm.gameList[prefabEnemigo].transform.position += Vector3.down * 1;
             string nombreEnemigo = gm.gameList[prefabEnemigo].GetComponent<Enemigo>().nombreEnemigo;
-            transform.position += Vector3.up * 2;
+            transform.position += Vector3.up * 1;
             switch (nombreJugador)
             {
                 case "Abuelo":
@@ -201,9 +201,9 @@ public class Player : MonoBehaviour
     IEnumerator cooldownAnim(List<GameObject> lista, int indice)
     {
 
-        yield return new WaitForSeconds(2);
-        lista[indice].transform.position += Vector3.up * 2;
-        transform.position += Vector3.down * 2;
+        yield return new WaitForSeconds(1);
+        lista[indice].transform.position += Vector3.up * 1;
+        transform.position += Vector3.down * 1;
 
     }
 }
