@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Video;
 
 public class GameManager : MonoBehaviour
@@ -20,5 +21,18 @@ public class GameManager : MonoBehaviour
         gameList.Add(enemigo3);
         gameList.Add(enemigo4);
         gameList.Add(enemigo5);
+    }
+
+    void Update()
+    {
+        if (contadorEnemigo == 5)
+        {
+            SceneManager.LoadSceneAsync("GameOver");
+        }
+        else if (contadorPlayer == 5)
+        {
+            SceneManager.LoadSceneAsync("Win");
+            // CHANGE SCENE TO PLAYER WON
+        }
     }
 }
